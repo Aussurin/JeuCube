@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+{% block body %}
+
+<body>
+
+    <div id="cookieAsk">
+        <input type="button" class="cookieButton" id= "acceptCookieButton" onclick="accepted()" value="{{constant('ACCEPT', contexte)}}">
+        <input type="button" class="cookieButton" id="refuseCookieButton" onclick="redirect()" value="{{constant('DECLINE', contexte)}}">
+    </div>
+
+
+    <div class="example-wrapper">
+        <h1>Hello {{ controller_name }}! ✅</h1>
+
+        This friendly message is coming from:
+        <ul>
+            <li>Your controller at <code>C:/wamp64/www/JeuCube/src/Controller/HomeController.php</code></li>
+            <li>Your template at <code>C:/wamp64/www/JeuCube/templates/home/index.html.twig</code></li>
+        </ul>
+</div>
+</body onload="cookieForm()">
+
+    <script>
+        function cookieForm(){
+            e = document.getElementById("cookieAsk")
+            e.style.display="felx";
+        }
+        function redirect(){
+            window.location.href = "https://google.com"
+        }
+        function accepted(){
+            f = document.getElementById("cookieAsk").style.display="none"
+                        
+        }
+
+    </script>
+    {% endblock %}
